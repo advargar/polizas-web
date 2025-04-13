@@ -5,7 +5,7 @@ import { FetchConsult } from '../../helpers/FetchConsult';
 export const startLoadingPolicies = () => {
   return async (dispatch) => {
     try {
-      const resp = await FetchConsult('api/policies', {}, 'GET');
+      const resp = await FetchConsult('api/policy/polizas', {}, 'GET');
       const body = await resp.json();
       dispatch(setPolicies(body.policies));
     } catch (error) {
@@ -18,7 +18,7 @@ export const startSavingPolicy = (policyData) => {
   return async (dispatch) => {
     dispatch(setSaving());
     try {
-      const resp = await FetchConsult('api/policies/create', policyData, 'POST');
+      const resp = await FetchConsult('api/policy/crearPoliza', policyData, 'POST');
       const body = await resp.json();
       dispatch(addPolicy(body.policy));
     } catch (error) {
@@ -31,7 +31,7 @@ export const startUpdatingPolicy = (policyData) => {
   return async (dispatch) => {
     dispatch(setSaving());
     try {
-      const resp = await FetchConsult(`api/policies/${policyData.policyNumber}`, policyData, 'PUT');
+      const resp = await FetchConsult(`api/policy/editarPoliza/${policyData.policyNumber}`, policyData, 'PUT');
       const body = await resp.json();
       dispatch(updatePolicy(body.policy));
     } catch (error) {
@@ -43,7 +43,7 @@ export const startUpdatingPolicy = (policyData) => {
 export const startDeletingPolicy = (policyNumber) => {
   return async (dispatch) => {
     try {
-      const resp = await FetchConsult(`api/policies/${policyNumber}`, {}, 'DELETE');
+      const resp = await FetchConsult(`api/policy/eliminarPoliza/${policyNumber}`, {}, 'DELETE');
       const body = await resp.json();
       dispatch(deletePolicy(policyNumber));
     } catch (error) {

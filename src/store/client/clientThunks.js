@@ -9,7 +9,7 @@ export const startNewClient = (clientData) => {
     await TopLoaderService.start();
 
     try {
-      const resp = await FetchConsult('api/clients/create', clientData, 'POST');
+      const resp = await FetchConsult('api/client/crearCliente', clientData, 'POST');
       const body = await resp.json();
 
       if (body.status) {
@@ -29,7 +29,7 @@ export const startNewClient = (clientData) => {
 export const startLoadingClients = () => {
   return async (dispatch) => {
     try {
-      const resp = await FetchConsult('api/clients', {}, 'GET');
+      const resp = await FetchConsult('api/client/clientes', {}, 'GET');
       const body = await resp.json();
       dispatch(setClients(body.clients));
     } catch (error) {
@@ -42,7 +42,7 @@ export const startUpdateClient = (clientData) => {
   return async (dispatch) => {
     dispatch(setSaving());
     try {
-      const resp = await FetchConsult(`api/clients/${clientData.id}`, clientData, 'PUT');
+      const resp = await FetchConsult(`api/client/editarCliente/${clientData.id}`, clientData, 'PUT');
       const body = await resp.json();
 
       if (body.status) {
@@ -60,7 +60,7 @@ export const startUpdateClient = (clientData) => {
 export const startDeletingClient = (id) => {
   return async (dispatch) => {
     try {
-      const resp = await FetchConsult(`api/clients/${id}`, {}, 'DELETE');
+      const resp = await FetchConsult(`api/client/eliminarCliente/${id}`, {}, 'DELETE');
       const body = await resp.json();
 
       if (body.status) {

@@ -34,23 +34,23 @@ export const policyView = () => {
             <TableRow>
               <TableCell>Número</TableCell>
               <TableCell>Tipo</TableCell>
-              <TableCell>Estado</TableCell>
+              <TableCell>Monto cobertura</TableCell>
               <TableCell>Cliente</TableCell>
               <TableCell align="right">Acciones</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {policies.map((policy) => (
-              <TableRow key={policy.policyNumber}>
-                <TableCell>{policy.policyNumber}</TableCell>
-                <TableCell>{policy.policyType}</TableCell>
-                <TableCell>{policy.policyStatus}</TableCell>
-                <TableCell>{policy.clientId}</TableCell>
+              <TableRow key={policy.PolicyNumber}>
+                <TableCell>{policy.PolicyNumber}</TableCell>
+                <TableCell>{policy.PolicyType}</TableCell>
+                <TableCell>{policy.CoverageAmount}</TableCell>
+                <TableCell>{policy.ClientId}</TableCell>
                 <TableCell align="right">
                   <IconButton color="primary" onClick={() => handleEdit(policy)}>
                     <EditIcon />
                   </IconButton>
-                  <IconButton color="error" onClick={() => handleDelete(policy.policyNumber)}>
+                  <IconButton color="error" onClick={() => handleDelete(policy.PolicyNumber)}>
                     <DeleteIcon />
                   </IconButton>
                 </TableCell>

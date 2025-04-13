@@ -20,11 +20,11 @@ export const policySlice = createSlice({
     },
     updatePolicy: (state, action) => {
       state.policies = state.policies.map(policy =>
-        policy.policyNumber === action.payload.policyNumber ? action.payload : policy
+        policy.PolicyNumber === action.payload.PolicyNumber ? action.payload : policy
       );
     },
     deletePolicy: (state, action) => {
-      state.policies = state.policies.filter(policy => policy.policyNumber !== action.payload);
+      state.policies = state.policies.filter(policy => policy.PolicyNumber !== action.payload);
     },
     setSaving: (state) => {
       state.isSaving = true;

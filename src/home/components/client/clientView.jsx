@@ -33,22 +33,26 @@ export const clientView = () => {
           <TableHead>
             <TableRow>
               <TableCell>Nombre</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Rol</TableCell>
+              <TableCell>Apellido</TableCell>
+              <TableCell>Apellido</TableCell>
+              <TableCell>Tipo</TableCell>
+              <TableCell>Cumpleanos</TableCell>
               <TableCell align="right">Acciones</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {clients.map((client) => (
-              <TableRow key={client.userId}>
-                <TableCell>{client.userName}</TableCell>
-                <TableCell>{client.email}</TableCell>
-                <TableCell>{client.role}</TableCell>
+              <TableRow key={client.InsureId}>
+                <TableCell>{client.Name}</TableCell>
+                <TableCell>{client.FirstSurname}</TableCell>
+                <TableCell>{client.SecondSurname}</TableCell>
+                <TableCell>{client.PersonType}</TableCell>
+                <TableCell>{client.Birthdate}</TableCell>
                 <TableCell align="right">
                   <IconButton color="primary" onClick={() => handleEdit(client)}>
                     <EditIcon />
                   </IconButton>
-                  <IconButton color="error" onClick={() => handleDelete(client.userId)}>
+                  <IconButton color="error" onClick={() => handleDelete(client.InsureId)}>
                     <DeleteIcon />
                   </IconButton>
                 </TableCell>

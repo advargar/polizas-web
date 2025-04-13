@@ -28,14 +28,14 @@ export const clientSlice = createSlice({
             state.isSaving = false;
             state.clients = state.clients.map( client => {
 
-                if ( client.id === action.payload.id ) {
+                if ( client.InsuranceId === action.payload.InsuranceId ) {
                     return action.payload;
                 }
 
                 return client;
             });
 
-            state.messageSaved = `${ action.payload.name }, actualizada correctamente`;
+            state.messageSaved = `${ action.payload.Name }, actualizada correctamente`;
         },
 
         clearClientsLogout: (state) => {
@@ -47,7 +47,7 @@ export const clientSlice = createSlice({
 
         deleteClientById: (state, action ) => {
             state.active = null;
-            state.clients = state.clients.filter( client => client.id !== action.payload );
+            state.clients = state.clients.filter( client => client.InsuranceId !== action.payload );
         },
     }
 });
