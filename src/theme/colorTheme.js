@@ -1,13 +1,13 @@
 import { createTheme } from '@mui/material';
 import { red } from '@mui/material/colors';
 
-export const purpleTheme = createTheme({
+export const colorTheme = createTheme({
     palette: {
         primary: {
-            main: '#262254'
+            main: '#FFA725'
         },
         secondary: {
-            main: '#543884'
+            main: '#C1D8C3'
         },
         error: {
             main: red.A400
