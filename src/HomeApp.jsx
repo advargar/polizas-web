@@ -1,11 +1,9 @@
-import { AppRouter } from './router/AppRouter';
-import { AppTheme } from './theme';
+import  AppRouter  from './router/AppRouter';
+import { BrowserRouter } from 'react-router-dom';
 
 export const HomeApp = () => {
-
-  return (
-    <AppTheme>
+  <BrowserRouter>
       <AppRouter />
-    </AppTheme>
-  )
+      <h2>Clients List</h2>
+    </BrowserRouter>
 }

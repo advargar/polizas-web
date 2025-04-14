@@ -1,15 +1,14 @@
-import { Router, Navigate, Route } from 'react-router-dom';
-import { client,policy, auth  } from '../screens/'
+import { Routes, Route } from 'react-router-dom';
+import HomeLayout from '../Layout/HomeLayout';
+import clientView from '../components/client/clientView';
 
-export const HomeRoutes = () => {
+const HomeRoutes = () => {
   return (
-    <Router>
-      <Route exact path="/client" element={ client } />
-      <Route exact path="/policy" element={ policy } />
-      <Route exact path="/auth" element={ auth } />
-      <Route path="/*" element={ <Navigate to="/" /> } />
-    
-    </Router>
+    <Routes>
+      <Route path="/" element={<HomeLayout><clientView /></HomeLayout>} />
+    </Routes>
   );
 };
+
+export default HomeRoutes;
 

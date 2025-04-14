@@ -1,6 +1,6 @@
 import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material';
 import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
-
+import { Link } from 'react-router-dom';
 
 export const NavBar = ({ drawerWidth = 240 }) => {
     return (
@@ -25,9 +25,6 @@ export const NavBar = ({ drawerWidth = 240 }) => {
 
                     <Link href="/client" underline="hover">
                         {'Clientes'}
-                    </Link>
-                    <Link href="/policy" underline="hover">
-                        {'Polizas'}
                     </Link>
 
                     <IconButton color='error'>

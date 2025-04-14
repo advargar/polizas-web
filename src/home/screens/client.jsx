@@ -1,4 +1,6 @@
 
+import  clientView  from "../components/client/clientView.jsx";
+
 export const client = () => {
   return (
     <>

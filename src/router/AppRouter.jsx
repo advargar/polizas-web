@@ -1,19 +1,12 @@
-import { Route, Routes } from 'react-router-dom';
-// import { AuthRoutes } from '../auth/routes/AuthRoutes';
-import { HomeLayout } from '../home/layout/HomeLayout';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import HomeRoutes from '../home/routes/HomeRoutes';
 
-
-export const AppRouter = () => {
+export default function AppRouter () {
   return (
     <Routes>
-
-        {/* Login y Registro 
-        <Route path="/auth/*" element={ <AuthRoutes /> } />
-        */}
-        
-        {/* JournalApp */}
-        <Route path="/*" element={ <HomeLayout /> } />
-
-    </Routes>
-  )
-}
+    <Route path="/*" element={<HomeRoutes />} />
+    <Route path="*" element={<Navigate to="/" />} />
+  </Routes>
+      );
+    }
+  
