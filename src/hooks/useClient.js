@@ -1,7 +1,17 @@
 import { addNewEmptyClient, deleteClientById, savingNewClient, setClients, setSaving, updateClient } from "./clientSlice";
 import Swal from "sweetalert2";
-import { FetchConsult } from "../../helpers/FetchConsult";
+import { api } from "../../api/API"; 
 import { TopLoaderService } from "../../services/TopLoaderService";
+import { create } from "@mui/material/styles/createTransitions";
+
+
+export const getClients = createAsyncThunk(
+  '/client/clientes',
+  async () => {
+    const { data } = await api.get('/client/clientes');
+    return data.clients;
+  }
+);
 
 export const startNewClient = (clientData) => {
   return async (dispatch) => {
@@ -9,7 +19,7 @@ export const startNewClient = (clientData) => {
     await TopLoaderService.start();
 
     try {
-      const resp = await FetchConsult('api/client/crearCliente', clientData, 'POST');
+      const resp = await api('/client/crearCliente', clientData, 'POST');
       const body = await resp.json();
 
       if (body.status) {
@@ -29,7 +39,7 @@ export const startNewClient = (clientData) => {
 export const startLoadingClients = () => {
   return async (dispatch) => {
     try {
-      const resp = await FetchConsult('api/client/clientes', {}, 'GET');
+      const resp = await api('/client/clientes', {}, 'GET');
       const body = await resp.json();
       dispatch(setClients(body.clients));
     } catch (error) {
@@ -42,7 +52,7 @@ export const startUpdateClient = (clientData) => {
   return async (dispatch) => {
     dispatch(setSaving());
     try {
-      const resp = await FetchConsult(`api/client/editarCliente/${clientData.id}`, clientData, 'PUT');
+      const resp = await api(`/client/editarCliente/${clientData.id}`, clientData, 'PUT');
       const body = await resp.json();
 
       if (body.status) {
@@ -60,7 +70,7 @@ export const startUpdateClient = (clientData) => {
 export const startDeletingClient = (id) => {
   return async (dispatch) => {
     try {
-      const resp = await FetchConsult(`api/client/eliminarCliente/${id}`, {}, 'DELETE');
+      const resp = await api(`/client/eliminarCliente/${id}`, {}, 'DELETE');
       const body = await resp.json();
 
       if (body.status) {
