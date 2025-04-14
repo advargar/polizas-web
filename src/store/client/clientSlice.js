@@ -5,27 +5,25 @@ import { useClient } from '../../hooks/useClient.js';
 // Async actions
 export const fetchClients = createAsyncThunk("Clients/fetchAll", async () => {
     const res = await useClient.getClients();
-    
-    console.log(res.data);
     return res.data;
   });
   
-  export const fetchClientById = createAsyncThunk("clients/fetchById", async (id) => {
+  export const fetchClientById = createAsyncThunk("Clients/fetchById", async (id) => {
     const res = await useClient.getClientById(id);
     return res.data;
   });
   
-  export const createClient = createAsyncThunk("clients/create", async (data) => {
+  export const createClient = createAsyncThunk("Clients/create", async (data) => {
     const res = await useClient.createClient(data);
     return res.data;
   });
   
-  export const updateClient = createAsyncThunk("clients/update", async ({ id, data }) => {
+  export const updateClient = createAsyncThunk("Clients/update", async ({ id, data }) => {
     const res = await useClient.updateClient(id, data);
     return res.data;
   });
   
-  export const deleteClient = createAsyncThunk("clients/delete", async (id) => {
+  export const deleteClient = createAsyncThunk("Clients/delete", async (id) => {
     await useClient.deleteClient(id);
     return id;
   });

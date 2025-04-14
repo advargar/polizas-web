@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import  clientSlice  from './client/clientSlice';
-import { policySlice } from './policy/policySlice';
+import  policySlice  from './policy/policySlice';
 
 export const store = configureStore ({
     reducer: {
         client: clientSlice,
-        //product: policySlice.reducer
+        policy: policySlice,
     }
 })
