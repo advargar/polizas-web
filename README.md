@@ -1,12 +1,35 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Proyecto: Sistema de Gestión de Pólizas 
 
-Currently, two official plugins are available:
+Este proyecto es una aplicación web desarrollada con ASP.NET Core y Entity Framework Core en el backend, y React con Material UI en el frontend. Permite gestionar clientes, pólizas y realizar búsquedas avanzadas mediante filtros.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Tecnologías Utilizadas
 
-## Expanding the ESLint configuration
+- **Backend:** ASP.NET Core 7.0, Entity Framework Core, SQL Server
+- **Frontend:** React, Redux Toolkit, Material UI
+- **Base de datos:** SQL Server LocalDB o SQL Server Express
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Instrucciones para ejecutar el proyecto
+
+### 🔧 Requisitos previos
+
+- Visual Studio 2022 (o superior)
+- .NET 7 SDK
+- SQL Server Express o LocalDB
+- Node.js (v16+)
+- npm o yarn
+
+---
+
+### 1️⃣ Backend (.NET API)
+
+1. Abre el archivo de solución `.sln` en Visual Studio.
+2. Establece el proyecto `BP-Proyecto` como **proyecto de inicio**.
+3. Verifica la cadena de conexión en `appsettings.json`. Ejemplo:
+   ```json
+   "ConnectionStrings": {
+     "Conexion": "Server=(localdb)\\MSSQLLocalDB;Database=BPProyectoDB;Trusted_Connection=True;"
+   }
